@@ -17,6 +17,11 @@ namespace Storage
             db = new MainContext();
         }
 
+        public Provider(string dbName)
+        {
+            db = new MainContext(dbName);
+        }
+
         public void StoreOrder(Order order)
         {
             db.Add(order);

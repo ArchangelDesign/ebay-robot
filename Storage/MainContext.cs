@@ -12,6 +12,7 @@ namespace Storage
 {
     internal class MainContext: DbContext
     {
+        private const string DB_NAME = "storage.sqlite";
         protected Logger log = LogManager.GetCurrentClassLogger();
         public DbSet<Order> Orders { get; set; }
 
@@ -20,10 +21,19 @@ namespace Storage
         public MainContext()
         {
             var path = Environment.CurrentDirectory;
-            DbPath = Path.Combine(path, "storage.sqlite");
+            DbPath = Path.Combine(path, DB_NAME);
             log.Info("Using DB in " + DbPath);
             Database.EnsureCreated();
             Database.Migrate();
+        }
+
+        public MainContext(string dbName)
+        {
+            var path = Environment.CurrentDirectory;
+            DbPath = Path.Combine(path, dbName);
+            log.Info("Using DB in " + DbPath);
+            Database.EnsureCreated();
+            //Database.Migrate();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)

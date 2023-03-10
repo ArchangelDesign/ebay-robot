@@ -95,7 +95,6 @@
     <Compile Include="Pages\AbstractPage.cs" />
     <Compile Include="Pages\ActiveListings.cs" />
     <Compile Include="Pages\AllOrders.cs" />
-    <Compile Include="Pages\Class1.cs" />
     <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Pages\Overview.cs" />
     <Compile Include="Pages\Page.cs" />
